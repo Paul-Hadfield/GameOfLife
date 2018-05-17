@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,19 +40,29 @@ namespace GameOfLife
         {
             if (!alive)
             {
-                return liveNeighbours == 3;
+                if (liveNeighbours == 3)
+                {
+                    Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - Rule Four Passed");
+                    return true;
+                }
+
+                Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - Rule Four failed");
+                return false;
             }
 
             if (liveNeighbours < 2)
             {
+                Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - Rule Four Passed");
                 return false;
             }
 
             if (liveNeighbours == 2 || liveNeighbours == 3)
             {
+                Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - Rule Two Passed");
                 return true;
             }
 
+            Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - Going to die");
             return false;
         }
 
@@ -99,6 +110,8 @@ namespace GameOfLife
                     }
                 }
             }
+
+            Debug.Print($"X: {xPos}, Y: {yPos} - Live Neighbours: {liveNeighbours}");
 
             return liveNeighbours;
         }
