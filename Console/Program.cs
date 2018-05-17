@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace Console
+namespace GameOfLife
 {
     class Program
     {
@@ -14,11 +14,19 @@ namespace Console
             var grid = Blinker();
 
             Output(grid);
+            Console.ReadKey();
         }
 
         private static void Output(bool[,] grid)
         {
-            throw new NotImplementedException();
+            for (var x = 0; x < grid.GetLength(0); x++)
+            {
+                for (var y = 0; y < grid.GetLength(1); y++)
+                {
+                    Console.WriteLine(grid[x,y]);
+                }
+                Console.WriteLine();
+            }
         }
 
         private static bool[,] Blinker()
