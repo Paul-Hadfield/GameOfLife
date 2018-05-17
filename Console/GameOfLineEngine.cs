@@ -22,6 +22,8 @@ namespace GameOfLife
 
         public void Process(bool[,] grid)
         {
+            Throw.IfNull(grid, nameof(grid));
+
             while (loopHandler.ContinueLooping())
             {
                 output.Write(grid);
