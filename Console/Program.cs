@@ -23,7 +23,26 @@ namespace GameOfLife
 
         private static bool[,] Process(bool[,] grid)
         {
+            for (var x = 0; x < grid.GetLength(0); x++)
+            {
+                for (var y = 0; y < grid.GetLength(1); y++)
+                {
+                    var liveNeighbours = GetCountOfLiveNeighbours(grid, x,y);
+                    grid[x, y] = UpdateState(grid[x, y], liveNeighbours);
+                }
+            }
+
             return grid;
+        }
+
+        private static bool UpdateState(bool b, int liveNeighbours)
+        {
+            return false;
+        }
+
+        private static int GetCountOfLiveNeighbours(bool[,] grid, int i, int i1)
+        {
+            return 0;
         }
 
         private static void Output(bool[,] grid)
