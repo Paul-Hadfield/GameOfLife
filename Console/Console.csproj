@@ -47,10 +47,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rules\IDefineARule.cs" />
+    <Compile Include="Rules\IDefineARulesEngine.cs" />
     <Compile Include="Rules\Rule1.cs" />
     <Compile Include="Rules\Rule2.cs" />
     <Compile Include="Rules\Rule3.cs" />
     <Compile Include="Rules\Rule4.cs" />
+    <Compile Include="Rules\RulesEngine.cs" />
     <Compile Include="Seeders\BlinkerSeeder.cs" />
     <Compile Include="Seeders\IDefineASeeder.cs" />
   </ItemGroup>

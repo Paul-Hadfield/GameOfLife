@@ -31,41 +31,11 @@ namespace GameOfLife
                 for (var y = 0; y < grid.GetLength(1); y++)
                 {
                     var liveNeighbours = GetCountOfLiveNeighbours(grid, x,y);
-                    newGrid[x, y] = UpdateState(grid[x, y], liveNeighbours);
+                    newGrid[x, y] = new RulesEngine().DetermineNewState(grid[x, y], liveNeighbours);
                 }
             }
 
             return newGrid;
-        }
-
-        private static bool UpdateState(bool alive, int liveNeighbours)
-        {
-            if (new Rule4().IsMatched(alive, liveNeighbours))
-            {
-                Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - Rule Four Passed");
-                return true;
-            }
-
-            if (new Rule1().IsMatched(alive, liveNeighbours))
-            {
-                Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - Rule One Passed");
-                return false;
-            }
-
-            if (new Rule2().IsMatched(alive, liveNeighbours))
-            {
-                Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - Rule Two Passed");
-                return true;
-            }
-
-            if (new Rule3().IsMatched(alive, liveNeighbours))
-            {
-                Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - Rule Three Passed");
-                return true;
-            }
-
-            Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - No rules passed");
-            return false;
         }
 
         private static int GetCountOfLiveNeighbours(bool[,] grid, int xPos, int yPos)
