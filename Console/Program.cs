@@ -15,7 +15,7 @@ namespace GameOfLife
             var game = new GameOfLineEngine(
                                 new LiveNeighbourCounter(),
                                 new RulesEngine(),
-                                new StreamingConsoleOutput());
+                                new TabularConsoleOutput());
 
             game.Process(grid);
         }

@@ -48,6 +48,8 @@
     <Compile Include="ExceptionExtensions.cs" />
     <Compile Include="GameOfLineEngine.cs" />
     <Compile Include="Outputs\IDefineAnOutputter.cs" />
+    <Compile Include="Outputs\StreamingConsoleOutput.cs" />
+    <Compile Include="Outputs\TabularConsoleOutput.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rules\RuleMatchedResult.cs" />
