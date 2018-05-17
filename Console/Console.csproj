@@ -60,6 +60,7 @@
     <Compile Include="Rules\RulesEngine.cs" />
     <Compile Include="Seeders\BlinkerSeeder.cs" />
     <Compile Include="Seeders\IDefineASeeder.cs" />
+    <Compile Include="Seeders\SeederFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
