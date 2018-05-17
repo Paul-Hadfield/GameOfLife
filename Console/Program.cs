@@ -10,7 +10,7 @@ namespace GameOfLife
     {
         static void Main(string[] args)
         {
-            var grid = new SeederFactory().Create().Seed();
+            var grid = new SeederFactory().Create(SeederEnum.Beacon).Seed();
             
             var game = new GameOfLineEngine(
                                 new LiveNeighbourCounter(),

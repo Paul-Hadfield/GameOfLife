@@ -58,7 +58,9 @@
     <Compile Include="Rules\Rule3.cs" />
     <Compile Include="Rules\Rule4.cs" />
     <Compile Include="Rules\RulesEngine.cs" />
+    <Compile Include="Seeders\BeaconSeeder.cs" />
     <Compile Include="Seeders\BlinkerSeeder.cs" />
+    <Compile Include="Seeders\SeederEnum.cs" />
     <Compile Include="Seeders\IDefineASeeder.cs" />
     <Compile Include="Seeders\SeederFactory.cs" />
   </ItemGroup>
