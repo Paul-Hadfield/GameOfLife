@@ -32,7 +32,10 @@ namespace GameOfLife.Rules
                     return results[0].NewState;
             }
 
-            throw new ApplicationException("More than one rule matched");
+            throw new ApplicationException("More than one rule matched")
+                .AddData("currentState", currentState)
+                .AddData("numberOfLiveNeighbours", numberOfLiveNeighbours)
+                .AddData("results", results);
         }
     }
 }
