@@ -24,6 +24,7 @@ namespace GameOfLife
         {
             Throw.IfNull(grid, nameof(grid));
 
+            // Could pass grid into ContinueLooping and terminate when no more changes
             while (loopHandler.ContinueLooping())
             {
                 output.Write(grid);
