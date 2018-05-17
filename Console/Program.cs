@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System;
+using GameOfLife.Outputs;
 using GameOfLife.Seeders;
 
 namespace GameOfLife
@@ -9,10 +10,11 @@ namespace GameOfLife
         static void Main(string[] args)
         {
             var grid = new BlinkerSeeder().Seed();
+            var output = new StreamingConsoleOutput();
 
             while (true)
             {
-                Output(grid);
+                output.Write(grid);
                 grid = Process(grid);
                 Console.ReadKey();
             }
@@ -112,20 +114,6 @@ namespace GameOfLife
             Debug.Print($"X: {xPos}, Y: {yPos} - Live Neighbours: {liveNeighbours}");
 
             return liveNeighbours;
-        }
-
-        private static void Output(bool[,] grid)
-        {
-
-            Console.WriteLine("Next Cycle>>>");
-            for (var x = 0; x < grid.GetLength(0); x++)
-            {
-                for (var y = 0; y < grid.GetLength(1); y++)
-                {
-                    Console.WriteLine(grid[x,y]);
-                }
-                Console.WriteLine();
-            }
         }
     }
 }
