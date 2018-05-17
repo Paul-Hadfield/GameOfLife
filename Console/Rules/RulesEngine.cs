@@ -21,6 +21,12 @@ namespace GameOfLife.Rules
 
         public bool DetermineNewState(bool currentState, int numberOfLiveNeighbours)
         {
+            if (numberOfLiveNeighbours < 0)
+            {
+                throw new ArgumentException("Number of Live Neighbours should be zero or greater!")
+                    .AddData("numberOfLiveNeighbours", numberOfLiveNeighbours);
+            }
+
             var results = this.rules.Select(rule => rule.Check(currentState, numberOfLiveNeighbours)).ToList();
 
             results = results.Where(r => r != null).ToList();
