@@ -35,8 +35,23 @@ namespace GameOfLife
             return grid;
         }
 
-        private static bool UpdateState(bool b, int liveNeighbours)
+        private static bool UpdateState(bool alive, int liveNeighbours)
         {
+            if (!alive)
+            {
+                return liveNeighbours == 3;
+            }
+
+            if (liveNeighbours < 2)
+            {
+                return false;
+            }
+
+            if (liveNeighbours == 2 || liveNeighbours == 3)
+            {
+                return true;
+            }
+
             return false;
         }
 
