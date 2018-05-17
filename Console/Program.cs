@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
+﻿using System.Diagnostics;
+using System;
+using GameOfLife.Seeders;
 
 namespace GameOfLife
 {
@@ -12,7 +8,7 @@ namespace GameOfLife
     {
         static void Main(string[] args)
         {
-            var grid = Blinker();
+            var grid = new BlinkerSeeder().Seed();
 
             while (true)
             {
@@ -130,15 +126,6 @@ namespace GameOfLife
                 }
                 Console.WriteLine();
             }
-        }
-
-        private static bool[,] Blinker()
-        {
-            var grid = new bool[5, 5];
-            grid[1, 2] = true;
-            grid[2, 2] = true;
-            grid[3, 2] = true;
-            return grid;
         }
     }
 }
