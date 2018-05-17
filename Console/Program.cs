@@ -52,7 +52,7 @@ namespace GameOfLife
 
             if (liveNeighbours < 2)
             {
-                Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - Rule Four Passed");
+                Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - Rule One Passed");
                 return false;
             }
 
