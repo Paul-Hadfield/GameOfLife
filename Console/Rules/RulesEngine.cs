@@ -27,9 +27,11 @@ namespace GameOfLife.Rules
                     .AddData("numberOfLiveNeighbours", numberOfLiveNeighbours);
             }
 
-            var results = this.rules.Select(rule => rule.Check(currentState, numberOfLiveNeighbours)).ToList();
+            var results = this.rules
+                            .Select(rule => rule.Check(currentState, numberOfLiveNeighbours))
+                            .Where(r => r != null)
+                            .ToList();
 
-            results = results.Where(r => r != null).ToList();
             switch (results.Count)
             {
                 case 0:
