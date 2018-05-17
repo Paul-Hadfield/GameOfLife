@@ -1,5 +1,4 @@
-﻿using System;
-using GameOfLife.Counters;
+﻿using GameOfLife.Counters;
 using GameOfLife.Loopers;
 using GameOfLife.Outputs;
 using GameOfLife.Rules;
@@ -15,10 +14,10 @@ namespace GameOfLife
 
         public GameOfLineEngine(IDefineANeigbourCounter counter, IDefineARulesEngine rulesEngine, IDefineAnOutputter output, IDefineLoopHandler loopHandler)
         {
-            this.counter = counter;
-            this.rulesEngine = rulesEngine;
-            this.output = output;
-            this.loopHandler = loopHandler;
+            this.counter = ReturnParameter.OrThrowIfNull(counter, nameof(counter));
+            this.rulesEngine = ReturnParameter.OrThrowIfNull(rulesEngine, nameof(rulesEngine));
+            this.output = ReturnParameter.OrThrowIfNull(output, nameof(output));
+            this.loopHandler = ReturnParameter.OrThrowIfNull(loopHandler, nameof(loopHandler));
         }
 
         public void Process(bool[,] grid)

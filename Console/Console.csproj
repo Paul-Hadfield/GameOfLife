@@ -55,6 +55,7 @@
     <Compile Include="Outputs\TabularConsoleOutput.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReturnParameter.cs" />
     <Compile Include="Rules\RuleMatchedResult.cs" />
     <Compile Include="Rules\IDefineARule.cs" />
     <Compile Include="Rules\IDefineARulesEngine.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Seeders\SeederEnum.cs" />
     <Compile Include="Seeders\IDefineASeeder.cs" />
     <Compile Include="Seeders\SeederFactory.cs" />
+    <Compile Include="Throw.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
