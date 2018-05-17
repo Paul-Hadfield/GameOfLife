@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using System;
-using System.Collections.Generic;
 using GameOfLife.Outputs;
 using GameOfLife.Rules;
 using GameOfLife.Seeders;

@@ -6,5 +6,15 @@
         {
             return alive && liveNeighbours < 2;
         }
+
+        public RuleMatchedResult Check(bool alive, int liveNeighbours)
+        {
+            if (IsMatched(alive, liveNeighbours))
+            {
+                return new RuleMatchedResult {Rule = RuleEnum.One, NewState = false};
+            }
+
+            return null;
+        }
     }
 }

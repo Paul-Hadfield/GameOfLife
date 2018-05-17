@@ -46,6 +46,7 @@
     <Compile Include="Outputs\IDefineAnOutputter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rules\RuleMatchedResult.cs" />
     <Compile Include="Rules\IDefineARule.cs" />
     <Compile Include="Rules\IDefineARulesEngine.cs" />
     <Compile Include="Rules\Rule1.cs" />

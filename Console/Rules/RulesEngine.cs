@@ -1,30 +1,33 @@
-﻿namespace GameOfLife.Rules
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace GameOfLife.Rules
 {
     public class RulesEngine : IDefineARulesEngine
     {
         public bool DetermineNewState(bool currentState, int numberOfLiveNeighbours)
         {
-            if (new Rule1().IsMatched(currentState, numberOfLiveNeighbours))
+            var results = new List<RuleMatchedResult>
+            {
+                new Rule1().Check(currentState, numberOfLiveNeighbours),
+                new Rule2().Check(currentState, numberOfLiveNeighbours),
+                new Rule3().Check(currentState, numberOfLiveNeighbours),
+                new Rule4().Check(currentState, numberOfLiveNeighbours)
+            };
+            
+            results = results.Where(r => r != null).ToList();
+            if (results.Count == 0)
             {
                 return false;
             }
 
-            if (new Rule2().IsMatched(currentState, numberOfLiveNeighbours))
+            if (results.Count == 1)
             {
-                return true;
+                return results[0].NewState;
             }
 
-            if (new Rule3().IsMatched(currentState, numberOfLiveNeighbours))
-            {
-                return false;
-            }
-
-            if (new Rule4().IsMatched(currentState, numberOfLiveNeighbours))
-            {
-                return true;
-            }
-
-            return false;
+            throw new ApplicationException("More than one rule matched");
         }
     }
 }

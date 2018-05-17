@@ -11,5 +11,16 @@
 
             return false;
         }
+
+        public RuleMatchedResult Check(bool alive, int liveNeighbours)
+        {
+            if (IsMatched(alive, liveNeighbours))
+            {
+                return new RuleMatchedResult { Rule = RuleEnum.Four, NewState = true };
+            }
+
+            return null;
+        }
+
     }
 }
