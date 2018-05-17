@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using System;
+using System.Collections.Generic;
 using GameOfLife.Outputs;
+using GameOfLife.Rules;
 using GameOfLife.Seeders;
 
 namespace GameOfLife
@@ -38,31 +40,31 @@ namespace GameOfLife
 
         private static bool UpdateState(bool alive, int liveNeighbours)
         {
-            if (!alive)
+            if (new Rule4().IsMatched(alive, liveNeighbours))
             {
-                if (liveNeighbours == 3)
-                {
-                    Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - Rule Four Passed");
-                    return true;
-                }
-
-                Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - Rule Four failed");
-                return false;
+                Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - Rule Four Passed");
+                return true;
             }
 
-            if (liveNeighbours < 2)
+            if (new Rule1().IsMatched(alive, liveNeighbours))
             {
                 Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - Rule One Passed");
                 return false;
             }
 
-            if (liveNeighbours == 2 || liveNeighbours == 3)
+            if (new Rule2().IsMatched(alive, liveNeighbours))
             {
                 Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - Rule Two Passed");
                 return true;
             }
 
-            Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - Going to die");
+            if (new Rule3().IsMatched(alive, liveNeighbours))
+            {
+                Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - Rule Three Passed");
+                return true;
+            }
+
+            Debug.Print($"Alive: {alive} - Live Neighbours: {liveNeighbours} - No rules passed");
             return false;
         }
 
