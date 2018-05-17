@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Counters\IDefineANeigbourCounter.cs" />
+    <Compile Include="Counters\LiveNeighbourCounter.cs" />
     <Compile Include="ExceptionExtensions.cs" />
     <Compile Include="Outputs\IDefineAnOutputter.cs" />
     <Compile Include="Program.cs" />
