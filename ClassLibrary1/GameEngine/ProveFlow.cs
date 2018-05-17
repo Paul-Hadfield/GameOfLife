@@ -1,5 +1,6 @@
 ﻿using GameOfLife;
 using GameOfLife.Counters;
+using GameOfLife.Loopers;
 using GameOfLife.Outputs;
 using GameOfLife.Rules;
 using Moq;

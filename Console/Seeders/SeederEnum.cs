@@ -3,6 +3,7 @@
     public enum SeederEnum
     {
         Blinker,
-        Beacon
+        Beacon,
+        Random
     }
 }

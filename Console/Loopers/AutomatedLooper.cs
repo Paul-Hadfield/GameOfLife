@@ -1,8 +1,8 @@
-﻿using System;
+﻿using System.Threading;
 
-namespace GameOfLife
+namespace GameOfLife.Loopers
 {
-    public class ConsoleLooper : IDefineLoopHandler
+    public class AutomatedLooper : IDefineLoopHandler
     {
         public bool ContinueLooping()
         {
@@ -11,8 +11,7 @@ namespace GameOfLife
 
         public void Pause()
         {
-            Console.ReadKey();
-
+            Thread.Sleep(100);
         }
     }
 }

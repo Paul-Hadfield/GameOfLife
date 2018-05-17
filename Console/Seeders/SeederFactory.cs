@@ -12,6 +12,8 @@ namespace GameOfLife.Seeders
                     return new BlinkerSeeder();
                 case SeederEnum.Beacon:
                     return new BeaconSeeder();
+                case SeederEnum.Random:
+                    return new RandomSeeder();
                 default:
                     throw new ApplicationException("Seeder Type not handled").AddData("seederType", seederType);
             }

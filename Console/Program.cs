@@ -1,4 +1,5 @@
 ﻿using GameOfLife.Counters;
+using GameOfLife.Loopers;
 using GameOfLife.Outputs;
 using GameOfLife.Rules;
 using GameOfLife.Seeders;
@@ -9,13 +10,13 @@ namespace GameOfLife
     {
         static void Main(string[] args)
         {
-            var grid = new SeederFactory().Create(SeederEnum.Blinker).Seed();
+            var grid = new SeederFactory().Create(SeederEnum.Random).Seed();
             
             var game = new GameOfLineEngine(
                                 new LiveNeighbourCounter(),
                                 new RulesEngine(),
                                 new TabularConsoleOutput(),
-                                new ConsoleLooper());
+                                new AutomatedLooper());
 
             game.Process(grid);
         }
