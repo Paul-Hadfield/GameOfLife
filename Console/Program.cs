@@ -13,8 +13,11 @@ namespace GameOfLife
         {
             var grid = Blinker();
 
-            Output(grid);
-            Console.ReadKey();
+            while (true)
+            {
+                Output(grid);
+                Console.ReadKey();
+            }
         }
 
         private static void Output(bool[,] grid)
