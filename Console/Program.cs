@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Console
 {
@@ -11,6 +12,13 @@ namespace Console
         static void Main(string[] args)
         {
             var grid = Blinker();
+
+            Output(grid);
+        }
+
+        private static void Output(bool[,] grid)
+        {
+            throw new NotImplementedException();
         }
 
         private static bool[,] Blinker()
