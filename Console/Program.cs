@@ -16,8 +16,14 @@ namespace GameOfLife
             while (true)
             {
                 Output(grid);
+                grid = Process(grid);
                 Console.ReadKey();
             }
+        }
+
+        private static bool[,] Process(bool[,] grid)
+        {
+            return grid;
         }
 
         private static void Output(bool[,] grid)
