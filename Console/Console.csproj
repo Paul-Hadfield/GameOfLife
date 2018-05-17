@@ -43,10 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleLooper.cs" />
     <Compile Include="Counters\IDefineANeigbourCounter.cs" />
     <Compile Include="Counters\LiveNeighbourCounter.cs" />
     <Compile Include="ExceptionExtensions.cs" />
     <Compile Include="GameOfLineEngine.cs" />
+    <Compile Include="IDefineLoopHandler.cs" />
     <Compile Include="Outputs\IDefineAnOutputter.cs" />
     <Compile Include="Outputs\StreamingConsoleOutput.cs" />
     <Compile Include="Outputs\TabularConsoleOutput.cs" />
