@@ -6,25 +6,30 @@ namespace GameOfLife.Rules
 {
     public class RulesEngine : IDefineARulesEngine
     {
+        private readonly IList<IDefineARule> rules;
+
+        public RulesEngine()
+        {
+            this.rules = new List<IDefineARule>()
+            {
+                new Rule1(),
+                new Rule2(),
+                new Rule3(),
+                new Rule4()
+            };
+        }
+
         public bool DetermineNewState(bool currentState, int numberOfLiveNeighbours)
         {
-            var results = new List<RuleMatchedResult>
-            {
-                new Rule1().Check(currentState, numberOfLiveNeighbours),
-                new Rule2().Check(currentState, numberOfLiveNeighbours),
-                new Rule3().Check(currentState, numberOfLiveNeighbours),
-                new Rule4().Check(currentState, numberOfLiveNeighbours)
-            };
-            
-            results = results.Where(r => r != null).ToList();
-            if (results.Count == 0)
-            {
-                return false;
-            }
+            var results = this.rules.Select(rule => rule.Check(currentState, numberOfLiveNeighbours)).ToList();
 
-            if (results.Count == 1)
+            results = results.Where(r => r != null).ToList();
+            switch (results.Count)
             {
-                return results[0].NewState;
+                case 0:
+                    return false;
+                case 1:
+                    return results[0].NewState;
             }
 
             throw new ApplicationException("More than one rule matched");
