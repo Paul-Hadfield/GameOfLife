@@ -16,6 +16,9 @@ namespace Console
         private static bool[,] Blinker()
         {
             var grid = new bool[5, 5];
+            grid[1, 2] = true;
+            grid[2, 2] = true;
+            grid[3, 2] = true;
             return grid;
         }
     }
